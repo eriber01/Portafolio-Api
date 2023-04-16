@@ -1,0 +1,31 @@
+scalar File
+scalar Upload
+
+type techData {
+  id: Int
+  url: String
+  name: String
+  publicId: String
+  enabled: Boolean
+  descriptions: String
+}
+
+input techInput {
+  id: Int
+  name: String
+  publicId: String
+  descriptions: String
+  enabled: Boolean
+  file: Upload
+}
+
+type Query {
+  getTech(where: techInput): [techData]
+  getTechUnique(where: techInput): techData
+}
+
+type Mutation {
+  createdUpdateTech(data: techInput): Boolean
+  deleteTech(where: techInput): String
+  enabledTech(where: techInput): String
+}

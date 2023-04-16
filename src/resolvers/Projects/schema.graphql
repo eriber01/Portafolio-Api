@@ -1,0 +1,50 @@
+# scalar File
+scalar Upload
+
+type techDataProduct {
+  id: Int
+  name: String
+  techId: Int
+  url: String
+}
+
+type Projects {
+  id: Int
+  name: String
+  descriptions: String
+  url: String
+  img: String
+  gitUrl: String
+  enabled: Boolean
+  publicId: String
+  techData: [techDataProduct]
+}
+
+input tech {
+  id: Int
+  # techId: Int
+}
+
+input ProjectInput {
+  id: Int
+  name: String
+  descriptions: String
+  url: String
+  # img: String
+  file: Upload
+  gitUrl: String
+  techId: [tech]
+  enabled: Boolean
+  publicId: String
+}
+
+type Query {
+  getProjects(where: ProjectInput): [Projects]
+}
+
+type Mutation {
+  createdUpdateProject(data: ProjectInput): Boolean
+  deleteProjectTech(where: tech): Boolean
+  deleteProject(where: ProjectInput): String
+  enabledProject(where: ProjectInput): String
+}

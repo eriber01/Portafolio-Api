@@ -1,0 +1,79 @@
+type user {
+  id: Int
+  name: String
+  descriptions: String
+  phone: String
+  email: String
+  github: String
+  linkedin: String
+  position: String
+  cvUrl: String
+  aboutProgramming: String
+  aboutGaming: String
+  aboutSeries: String
+}
+
+input userInput {
+  id: Int
+  name: String
+  descriptions: String
+  phone: String
+  email: String
+  github: String
+  linkedin: String
+  position: String
+  cvUrl: String
+  aboutProgramming: String
+  aboutGaming: String
+  aboutSeries: String
+  password: String
+  userName: String
+}
+
+type experiences {
+  id: Int
+  company: String
+  descriptions: String
+  positions: String
+  start: String
+  end: String
+  enabled: Boolean
+}
+
+input experiencesInput {
+  id: Int
+  company: String
+  descriptions: String
+  positions: String
+  start: String
+  end: String
+  enabled: Boolean
+}
+
+input sendMail {
+  name: String
+  email: String
+  message: String
+}
+
+input validateToken {
+  token: String
+}
+
+type signup{
+  token: String
+  message: String
+  isLogin: Boolean
+}
+
+type Query {
+  getUser: [user]
+  getExperiences: experiences
+  validateToken(data: validateToken): signup
+}
+
+type Mutation {
+  createUpdateUser(data: userInput): Boolean
+  createdUpdateExperiences(where: experiencesInput): Boolean
+  signup(data: userInput): signup
+}
