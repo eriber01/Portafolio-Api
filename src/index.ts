@@ -38,7 +38,7 @@ async function main() {
   console.log(config);
   await AppDataSource.initialize();
 
-  const port = config.port || 4000;
+  const port = config.port || 8080;
 
   const yoga = createYoga({
     schema: schema,
