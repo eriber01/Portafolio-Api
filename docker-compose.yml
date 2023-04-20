@@ -1,29 +1,13 @@
-# version: "3"
-# services:
-#   db:
-#     image: "postgres:11.3-alpine"
-#     container_name: "postgres"
-#     ports:
-#       - "54320:5432"
-#     volumes:
-#       - dbdata:/var/lib/postgresql/data
-#     environment:
-#       POSTGRES_PASSWORD: ${DB_USERNAME}
-#       POSTGRES_USER: {DB_PASSWORD}
-#       POSTGRES_DB: meds
-# volumes:
-#   dbdata:
-version: '3'
 
+version: '3.8'
 services:
-  db: 
-    container_name: portafolio-api
-    image: postgres:14.3
-    restart: always
+  postgres: 
+    image: postgres
+    restart: 'always'
     ports:
-      - "5432:54321"
-    volumes:
-      - ./postgres:/var/lib/postgresql/data      
+      - "54322:5432"
     environment:
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
+      - DATABASE_HOST=${HOST}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}

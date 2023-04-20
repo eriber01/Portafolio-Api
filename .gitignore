@@ -10,6 +10,8 @@
 
 # production
 /build
+/postgres
+.vscode
 
 # misc
 .DS_Store

@@ -36,9 +36,12 @@ const schema = makeExecutableSchema({
 async function main() {
   const app = express();
   console.log(config);
+  app.get('/hola', (req, res) => {
+    res.json({saludo: 'hola mudno'})
+  })
   await AppDataSource.initialize();
 
-  const port = config.port || 8080;
+  const port = config.port;
 
   const yoga = createYoga({
     schema: schema,

@@ -13,7 +13,7 @@ export const AppDataSource = new DataSource({
   host: config.host,
   username: config.username,
   password: config.password,
-  port: 54320,
+  port: 54322,
   database: config.database,
   entities: [path.join(__dirname, "../entity/**/**.ts")],
   synchronize: true,
