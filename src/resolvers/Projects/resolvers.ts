@@ -57,7 +57,7 @@ module.exports = {
 
         const dataTech = data.techId.map((item: any) => {
           return {
-            id: item.id,
+            // id: item.id,
             projectId: res.id,
             techId: item.id,
           };

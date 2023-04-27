@@ -55,7 +55,7 @@ async function main() {
     },
   });
 
-  app.use("/graphql",graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }), yoga.requestListener, express.json());
+  app.use("/graphql",graphqlUploadExpress({ maxFileSize: 20000000, maxFiles: 30 }), yoga.requestListener, express.json());
 
   app.listen(port, () => {
     console.log("Se ejecuta bien! en el puerto:", port);
